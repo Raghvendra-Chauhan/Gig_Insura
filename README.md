@@ -20,10 +20,11 @@
 5. [Parametric Triggers & Dashboard](#-parametric-triggers--dashboard)
 6. [System Architecture](#-system-architecture)
 7. [AI/ML Models & Fraud Detection](#-aiml-models--fraud-detection)
-8. [Workflow & Demo Flow](#-workflow--demo-flow)
-9. [Tech Stack](#-tech-stack)
-10. [Development Roadmap](#-development-roadmap)
-11. [Contributors](#-contributors)
+8. [Adversarial Defense & Anti-Spoofing](#-adversarial-defense--anti-spoofing)
+9. [Workflow & Demo Flow](#-workflow--demo-flow)
+10. [Tech Stack](#-tech-stack)
+11. [Development Roadmap](#-development-roadmap)
+12. [Contributors](#-contributors)
 
 ---
 
@@ -75,19 +76,30 @@ Claims are triggered automatically via active data streams:
 ## ⚙️ System Architecture
 ```mermaid
 graph TD
-    A[Mobile Web App \n React] -->|Worker Location| B(Node.js / Express Backend)
-    B --> C{MongoDB Database}
-    D[OpenWeather API] -.->|Weather Alerts| B
-    E[AQI & Traffic APIs] -.->|Pollution/Curfews| B
-    B <-->|Payload for Validation| F[Python AI/Fraud Engine]
-    F -->|Claim Validated| B
-    B -->|Trigger Payout| G[Mock Payment Gateway \n Razorpay]
+    A["Mobile Web App React"] -->|Location and Telemetry: OS Flags, IP, Timestamp| B("Node.js and Express Backend")
+    B --> C{"MongoDB Database"}
+    D["OpenWeather API"] -.->|Weather Alerts| B
+    E["AQI and Traffic APIs"] -.->|Pollution and Curfews| B
+    B <-->|Payload for Validation| F["Python AI and Fraud Engine"]
+    
+    F -.->|Pass: Validated| B
+    B -->|Trigger Payout| G["Mock Payment Gateway Razorpay"]
+    
+    F -.->|Fail: Anomaly Flagged| H["Asynchronous Escrow State"]
+    H -->|Request Live Photo| A
+    A -->|Upload Image| I["Admin Dashboard Review"]
+    I -->|Approve via Portal| G
 ```
 
 ## 🧠 AI/ML Models & Fraud Detection
 * **Risk Prediction (Logistic Regression / Random Forest):** Outputs Low/Medium/High risk score based on predictive data.
 * **Dynamic Pricing:** `Weekly Premium = Base Price + (Risk Score × Factor)`
 * **Fraud Detection (Isolation Forest):** Identifies unusual claim patterns, GPS spoofing, and duplicate claims.
+
+## 🛡️ Adversarial Defense & Anti-Spoofing (Market Shift Update)
+* **The Differentiation (Algorithmic Teleportation & Velocity Validation):** Our backend continuously calculates the time-distance delta between telemetry pings. If a worker exhibits instantaneous traversal (e.g., traveling 10km in 2 seconds), the anomaly engine instantly classifies the node as structurally impossible and flags the claim as a spoofed coordinate.
+* **The Data (Native OS Mock-Provider Flags & Static Network Fingerprinting):** Instead of relying purely on Latitude/Longitude, our system extracts native hardware-level flags from the mobile OS (which detect simulation applications) and cross-references them against Static IP persistence. A genuine moving delivery partner will transition across cellular network towers, whereas a stationary spoofer will maintain a highly suspicious, static home residential IP while displaying rapid coordinate shifts.
+* **The UX Balance (Asynchronous Escrow & Photographic Verification):** We never instantly reject a claim, as extreme weather can cause genuine GPS jitter. Instead, flagged claims are routed into a temporary "Escrow" state. The worker receives an empathetic push notification requesting a live contextual photograph (e.g., a real-time picture of the flooded street). This seamlessly shifts the burden of proof to a localized visual confirmation, penalizing spoofers while preserving the dignity and trust of honest riders.
 
 ## 🔄 Workflow & Demo Flow
 1. **Onboarding:** Worker registers, selects a plan, and AI calculates their risk score.
@@ -123,5 +135,5 @@ graph TD
 * **Satvik Chaurasia**
 * **Raghvendra Chauhan**
 * **Suryansh Chauhan**
-* **Samarth Keshari**
+* **Samarth Kesari**
 * **Gargi Sharma**
