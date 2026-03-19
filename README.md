@@ -139,19 +139,6 @@ cp .env.example .env
 npm run dev
 ```
 
-## 🗺️ Development Roadmap
-**Phase 1 (March 4 - 20) : Ideation & Foundation 🦄** 
-- [x] Strategy documentation, Idea Document, Architecture planning, and Git repository setup.
-
-**Phase 2 (March 21 - April 4) : Automation & Protection 🛡️** 
-- [ ] Implement Mobile Frontend and Express Backend.
-- [ ] Build AI Models (Random Forest / Isolation Forest).
-- [ ] Integrate Automated API Triggers.
-
-**Phase 3 (April 5 - 17) : Scale & Optimise 📈** 
-- [ ] Real-time payout simulation using Razorpay.
-- [ ] Finalize intelligent Dashboard.
-
 ---
 
 ## 👨‍💻 Contributors
