@@ -1,257 +1,127 @@
-# 🚀 Gig_Insura
+<div align="center">
+  <h1>🚀 GigInsura</h1>
+  <p><b>Smart protection for gig workers — when work stops, income doesn’t.</b></p>
+  
+  [![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)](#)
+  [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](#)
+  [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#)
+  [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
+  
+  <i>Built for Guidewire DEVTrails 2026: Unicorn Chase</i>
+</div>
 
-### AI-Powered Parametric Insurance for Gig Workers
+---
 
-> **“Smart protection for gig workers — when work stops, income doesn’t.”**
+## 📑 Table of Contents
+1. [Overview](#-overview)
+2. [Problem Statement](#-problem-statement)
+3. [Our Solution](#-our-solution)
+4. [Pricing & Coverage Plans](#-pricing--coverage-plans)
+5. [Parametric Triggers & Dashboard](#-parametric-triggers--dashboard)
+6. [System Architecture](#-system-architecture)
+7. [AI/ML Models & Fraud Detection](#-aiml-models--fraud-detection)
+8. [Workflow & Demo Flow](#-workflow--demo-flow)
+9. [Tech Stack](#-tech-stack)
+10. [Development Roadmap](#-development-roadmap)
+11. [Contributors](#-contributors)
 
 ---
 
 ## 📌 Overview
+**GigInsura** is an AI-powered parametric insurance platform designed to safeguard gig workers (delivery partners) from **income loss caused by external disruptions** such as extreme weather, pollution, and curfews.
 
-**Gig_Insura** is an AI-powered parametric insurance platform designed to safeguard gig workers (delivery partners) from **income loss caused by external disruptions** such as extreme weather, pollution, and curfews.
-
-Unlike traditional insurance systems, Gig_Insura leverages:
-
-* 📡 **Real-time data monitoring**
-* 🤖 **AI-driven risk assessment**
-* ⚡ **Automated claim triggering**
-
-👉 Result: **Instant payouts with zero paperwork and zero delay**
-
----
+Unlike traditional insurance systems, GigInsura leverages real-time data monitoring, AI-driven risk assessment, and automated claim triggering to provide **instant payouts with zero paperwork**.
 
 ## 🎯 Problem Statement
-
 Gig workers in India often lose **20–30% of their income** due to uncontrollable external factors like:
-
 * 🌧 Heavy rain / floods
 * 🌡 Heatwaves / high pollution
 * 🚓 Curfews, strikes, or area restrictions
 
-Currently, there is **no structured financial safety net** to protect their daily earnings.
-
----
+Currently, they carry 100% of this financial risk with no structured safety net to protect their daily earnings.
 
 ## 💡 Our Solution
+GigInsura provides a **fully automated income protection system** focused *exclusively* on income loss (strictly excluding health, accident, or vehicle insurance).
 
-Gig_Insura provides a **fully automated income protection system** that includes:
+### Key Features
+* 🧾 **Smart Onboarding:** Select platform (Zomato/Swiggy), enter earnings, receive AI risk profile.
+* 🤖 **AI Risk Assessment:** Predicts disruption probability using weather, location, and AQI patterns.
+* ⚡ **Parametric Insurance:** Auto-claims triggered by real-world conditions. No manual filing.
+* 🔐 **Fraud Detection:** GPS spoofing and anomaly detection.
 
-* 📊 AI-based **risk profiling**
-* 💰 Flexible **weekly subscription model**
-* ⚡ **Parametric triggers** for instant claims
-* 💸 **Real-time payout system**
+## 💰 Pricing & Coverage Plans
+We operate on a **weekly subscription model**, mapping perfectly to the payout cycle of gig workers.
 
-👉 Focus: **Income loss protection only** (No health, accident, or vehicle insurance)
+| Plan | Base Price | Coverage |
+| :--- | :--- | :--- |
+| **Basic** | ₹15/week | ₹200 payout |
+| **Standard** | ₹30/week | ₹400 payout |
+| **Pro** | ₹50/week | ₹700 payout |
+*Note: Premiums are adjusted dynamically by AI based on hyper-local risk scores.*
 
----
+## ⚡ Parametric Triggers & Dashboard
+Claims are triggered automatically via active data streams:
 
-## 🔥 Key Features
+| Condition | Trigger Event | Payout |
+| :--- | :--- | :--- |
+| Rain > 50mm | Delivery disruption | Instant payout limit |
+| AQI > 400 | Unsafe outdoor conditions | Instant payout limit |
+| Curfew Alert | Area inaccessible | Instant payout limit |
 
-### 🧾 Smart Onboarding
-
-* Select delivery platform (Zomato, Swiggy, etc.)
-* Enter weekly earnings
-* Instant AI-based risk profiling
-
----
-
-### 🤖 AI Risk Assessment
-
-Predicts disruption probability using:
-
-* Weather patterns
-* Location-based risks
-* Pollution levels
-
----
-
-### 💰 Weekly Pricing Plans
-
-| Plan     | Price    | Coverage    |
-| -------- | -------- | ----------- |
-| Basic    | ₹15/week | ₹200 payout |
-| Standard | ₹30/week | ₹400 payout |
-| Pro      | ₹50/week | ₹700 payout |
-
----
-
-### ⚡ Parametric Insurance (Auto Claims)
-
-Claims are triggered automatically based on real-world conditions:
-
-| Condition    | Trigger Event       | Payout |
-| ------------ | ------------------- | ------ |
-| Rain > 50mm  | Delivery disruption | ₹300   |
-| AQI > 400    | Unsafe conditions   | ₹200   |
-| Curfew Alert | Area inaccessible   | ₹400   |
-
-👉 No manual claim filing required
-
----
-
-### 🔐 Fraud Detection System
-
-* GPS spoofing detection
-* Duplicate claim prevention
-* AI-based anomaly detection
-
----
-
-### 📊 Dashboard
-
-#### 👤 Worker Dashboard
-
-* Active coverage status
-* Earnings protected
-* Real-time disruption alerts
-
-#### 🏢 Admin Dashboard
-
-* Claims analytics
-* Risk heatmaps
-* Fraud monitoring
-
----
+**Intelligent Dashboard:**
+* **Worker:** Active coverage status, earnings protected, real-time alerts.
+* **Admin:** Claims analytics, risk heatmaps, fraud monitoring.
 
 ## ⚙️ System Architecture
-
-```
-Frontend (React / Mobile App)
-        ↓
-Backend (Node.js / Express)
-        ↓
-AI Engine (Python / ML Model)
-        ↓
-Data Sources:
-  - Weather API
-  - AQI API
-  - Location Data
-        ↓
-Trigger Engine
-        ↓
-Payment Gateway (Razorpay - Test Mode)
+```mermaid
+graph TD
+    A[Mobile Web App \n React] -->|Worker Location| B(Node.js / Express Backend)
+    B --> C{MongoDB Database}
+    D[OpenWeather API] -.->|Weather Alerts| B
+    E[AQI & Traffic APIs] -.->|Pollution/Curfews| B
+    B <-->|Payload for Validation| F[Python AI/Fraud Engine]
+    F -->|Claim Validated| B
+    B -->|Trigger Payout| G[Mock Payment Gateway \n Razorpay]
 ```
 
----
+## 🧠 AI/ML Models & Fraud Detection
+* **Risk Prediction (Logistic Regression / Random Forest):** Outputs Low/Medium/High risk score based on predictive data.
+* **Dynamic Pricing:** `Weekly Premium = Base Price + (Risk Score × Factor)`
+* **Fraud Detection (Isolation Forest):** Identifies unusual claim patterns, GPS spoofing, and duplicate claims.
 
-## 🔄 Workflow
-
-1. User registers and selects a plan
-2. AI calculates risk score
-3. Weekly premium is generated dynamically
-4. System monitors real-time environmental conditions
-5. Disruption detected → Trigger activated
-6. Claim is auto-generated
-7. Instant payout is processed
-
----
-
-## 🧠 AI/ML Components
-
-### 1. Risk Prediction Model
-
-* Algorithms: Logistic Regression, Random Forest
-* Output: Risk Score (Low / Medium / High)
-
----
-
-### 2. Dynamic Pricing Model
-
-```
-Weekly Premium = Base Price + (Risk Score × Factor)
-```
-
----
-
-### 3. Fraud Detection Model
-
-* Isolation Forest / anomaly detection
-* Identifies unusual claim patterns
-
----
+## 🔄 Workflow & Demo Flow
+1. **Onboarding:** Worker registers, selects a plan, and AI calculates their risk score.
+2. **Weekly Deduction:** Dynamically generated premium is set.
+3. **The Disruption:** A disruption is simulated (e.g., heavy rainfall > 50mm).
+4. **Trigger & Validation:** System monitors real-time APIs. Fraud model analyzes GPS telemetry (e.g., verifying the worker is halted at the affected location).
+5. **Instant Payout:** Claim is auto-generated and payout is instantly processed via Razorpay Test Mode.
 
 ## 🧩 Tech Stack
+* **Frontend:** React / React Native
+* **Backend:** Node.js + Express
+* **AI/ML:** Python (Scikit-learn)
+* **Database:** MongoDB
+* **APIs:** OpenWeather API, AQI API
+* **Payments:** Razorpay (Test Mode)
 
-**Frontend**
+## 🗺️ Development Roadmap
+**Phase 1 (March 4 - 20) : Ideation & Foundation 🦄** 
+- [x] Strategy documentation, Idea Document, Architecture planning, and Git repository setup.
 
-* React / React Native
+**Phase 2 (March 21 - April 4) : Automation & Protection 🛡️** 
+- [ ] Implement Mobile Frontend and Express Backend.
+- [ ] Build AI Models (Random Forest / Isolation Forest).
+- [ ] Integrate Automated API Triggers.
 
-**Backend**
-
-* Node.js + Express
-
-**AI/ML**
-
-* Python (Scikit-learn)
-
-**Database**
-
-* MongoDB
-
-**APIs**
-
-* OpenWeather API
-* AQI API
-
-**Payments**
-
-* Razorpay (Test Mode)
-
----
-
-## 🎥 Demo Flow
-
-1. User logs into the platform
-2. Selects a weekly insurance plan
-3. A disruption is simulated (e.g., heavy rainfall)
-4. System detects the trigger
-5. Claim is automatically generated
-6. Payout is instantly credited
-
----
-
-## 🏆 Why Gig_Insura?
-
-* ✅ Zero paperwork insurance
-* ✅ Instant payouts
-* ✅ AI-driven dynamic pricing
-* ✅ Real-time disruption tracking
-* ✅ Designed specifically for the Indian gig economy
-
----
-
-## 📁 Project Structure
-
-```
-Gig_Insura/
-│── frontend/
-│── backend/
-│── ml-model/
-│── docs/
-│── README.md
-```
-
----
-
-## 🚀 Future Enhancements
-
-* 📱 Dedicated mobile application
-* 🌍 Multi-city and pan-India expansion
-* 📈 Advanced predictive analytics
-* 🤝 Integration with gig platform APIs
+**Phase 3 (April 5 - 17) : Scale & Optimise 📈** 
+- [ ] Real-time payout simulation using Razorpay.
+- [ ] Finalize intelligent Dashboard.
 
 ---
 
 ## 👨‍💻 Contributors
-
-* Satvik Chaurasia
-* Raghvendra Chauhan
-* Suryansh Chauhan
-* Samarth Kesari
-* Gargi Sharma
-
----
-
-## 📜 License
-
-This project is developed for educational and hackathon purposes only.
+* **Satvik Chaurasia**
+* **Raghvendra Chauhan**
+* **Suryansh Chauhan**
+* **Samarth Keshari**
+* **Gargi Sharma**
