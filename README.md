@@ -23,8 +23,9 @@
 8. [Adversarial Defense & Anti-Spoofing](#-adversarial-defense--anti-spoofing)
 9. [Workflow & Demo Flow](#-workflow--demo-flow)
 10. [Tech Stack](#-tech-stack)
-11. [Development Roadmap](#-development-roadmap)
-12. [Contributors](#-contributors)
+11. [Local Installation & Setup](#-local-installation--setup)
+12. [Development Roadmap](#-development-roadmap)
+13. [Contributors](#-contributors)
 
 ---
 
@@ -115,6 +116,28 @@ graph TD
 * **Database:** MongoDB
 * **APIs:** OpenWeather API, AQI API
 * **Payments:** Razorpay (Test Mode)
+
+## 💻 Local Installation & Setup
+*(Note: Full application architecture targeting completion in Phase 2)*
+```bash
+# Clone the repository
+git clone https://github.com/your-username/GigInsura.git
+cd GigInsura
+
+# Install Frontend Dependencies
+cd frontend
+npm install
+
+# Install Backend Dependencies
+cd ../backend
+npm install
+
+# Setup Environment Variables
+cp .env.example .env
+
+# Run the local development server
+npm run dev
+```
 
 ## 🗺️ Development Roadmap
 **Phase 1 (March 4 - 20) : Ideation & Foundation 🦄** 
