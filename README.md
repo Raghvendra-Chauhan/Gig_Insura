@@ -188,6 +188,9 @@ GigInsura's fraud architecture operates on three independent layers:
 3. **Layer 3 — Asynchronous Escrow & Photographic Verification:** Flagged claims are never instantly rejected — extreme weather can cause genuine GPS jitter. Instead, claims are placed in an Escrow state and the worker receives an empathetic push notification requesting a live contextual photo (e.g., a real-time image of the flooded street). This shifts the burden of proof to localized visual confirmation, penalizing spoofers while preserving the trust of honest workers.
 
 ## ⚙️ System Architecture
+
+![GigInsura System Architecture](assets/system_architecture.png)
+
 ```mermaid
 graph TD
     A["Mobile App (React Native)"] -->|"Location, Telemetry, OS Flags"| B("Node.js + Express Backend")
