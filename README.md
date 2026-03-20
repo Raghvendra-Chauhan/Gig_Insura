@@ -528,7 +528,3 @@ RAZORPAY_KEY_SECRET=your_test_secret_here
 | **Gargi Sharma** | Research · Strategy · Documentation |
 
 ---
-
-<div align="center">
-  <sub>Built with ❤️ for Guidewire DEVTrails 2026 · GigInsura Team</sub>
-</div>
