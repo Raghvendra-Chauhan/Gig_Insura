@@ -154,7 +154,7 @@ GigInsura uses a weekly subscription model, aligned with the payout cycle of gig
 **Why Weekly?** Gig workers receive platform payouts weekly. A weekly insurance cycle eliminates the barrier of upfront annual/monthly premiums that most gig workers cannot afford.
 
 ## ⚡ Parametric Triggers
-Claims are triggered automatically by crossing measurable real-world thresholds. No manual filing required.
+Claims are triggered automatically when measurable real-world thresholds are crossed—no manual filing required.
 
 | Trigger | Data Source | Threshold | Outcome |
 | :--- | :--- | :--- | :--- |
@@ -168,7 +168,7 @@ Claims are triggered automatically by crossing measurable real-world thresholds.
 
 ## 🧠 AI/ML Integration Plan
 ### 1. Risk Assessment & Dynamic Premium Pricing
-* **Model:** Logistic Regression → Random Forest (upgraded in Phase 2)
+* **Model:** Logistic Regression → Random Forest
 * **Inputs:** Worker's home zone, delivery zone cluster, historical weather events, AQI trends, curfew frequency, time-of-year seasonality
 * **Output:** Risk Score (Low / Medium / High) used to adjust weekly premium
 
@@ -241,7 +241,6 @@ graph TD
 - [ ] Admin/Insurer dashboard (claims analytics, risk heatmaps, predictive forecasting)
 
 ## 💻 Local Installation & Setup
-*(Full application targeting Phase 2 completion)*
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/GigInsura.git
