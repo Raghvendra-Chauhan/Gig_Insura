@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🚀 GigInsura</h1>
+  <h1>GigInsura</h1>
   <p><b>AI-Powered Parametric Insurance for Gig Workers</b></p>
   <p><i>“Smart protection for gig workers — when work stops, income doesn’t.”</i></p>
 
