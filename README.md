@@ -1,13 +1,15 @@
 <div align="center">
   <h1>🚀 GigInsura</h1>
-  <p><b>Smart protection for gig workers — when work stops, income doesn’t.</b></p>
-  
+  <p><b>AI-Powered Parametric Insurance for Gig Workers</b></p>
+  <p><i>“Smart protection for gig workers — when work stops, income doesn’t.”</i></p>
+
   [![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)](#)
   [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](#)
   [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](#)
   [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
   
-  <i>Built for Guidewire DEVTrails 2026: Unicorn Chase</i>
+  <i>Built for Guidewire DEVTrails 2026: Unicorn Chase</i><br>
+  <b>🎥 <a href="[INSERT_YOUTUBE_LINK_HERE]">Watch Our 2-Minute Phase 1 Pitch Video Here!</a></b>
 </div>
 
 ---
@@ -16,134 +18,265 @@
 1. [Overview](#-overview)
 2. [Problem Statement](#-problem-statement)
 3. [Our Solution](#-our-solution)
-4. [Pricing & Coverage Plans](#-pricing--coverage-plans)
-5. [Parametric Triggers & Dashboard](#-parametric-triggers--dashboard)
-6. [System Architecture](#-system-architecture)
-7. [AI/ML Models & Fraud Detection](#-aiml-models--fraud-detection)
-8. [Adversarial Defense & Anti-Spoofing](#-adversarial-defense--anti-spoofing)
-9. [Workflow & Demo Flow](#-workflow--demo-flow)
-10. [Tech Stack](#-tech-stack)
-11. [Local Installation & Setup](#-local-installation--setup)
+4. [Persona & Real-World Scenarios](#-persona--real-world-scenarios)
+5. [Application Workflow](#-application-workflow)
+6. [Pricing & Coverage Plans](#-pricing--coverage-plans)
+7. [Parametric Triggers](#-parametric-triggers)
+8. [AI/ML Integration Plan](#-aiml-integration-plan)
+9. [Fraud Detection & Anti-Spoofing](#-fraud-detection--anti-spoofing)
+10. [System Architecture](#-system-architecture)
+11. [Tech Stack](#-tech-stack)
 12. [Development Roadmap](#-development-roadmap)
-13. [Contributors](#-contributors)
+13. [Local Installation & Setup](#-local-installation--setup)
+14. [Contributors](#-contributors)
 
 ---
 
 ## 📌 Overview
-**GigInsura** is an AI-powered parametric insurance platform designed to safeguard gig workers (delivery partners) from **income loss caused by external disruptions** such as extreme weather, pollution, and curfews.
+**GigInsura** is an AI-powered parametric income insurance platform designed exclusively for food delivery partners (Zomato / Swiggy). It protects their weekly earnings from uncontrollable external disruptions — extreme weather, dangerous pollution levels, and area curfews — using real-time data, automated claim triggering, and instant payouts with zero paperwork.
 
-Unlike traditional insurance systems, GigInsura leverages real-time data monitoring, AI-driven risk assessment, and automated claim triggering to provide **instant payouts with zero paperwork**.
+**Coverage Scope:** Income loss ONLY. GigInsura strictly excludes health, accident, life insurance, and vehicle repair coverage.
 
 ## 🎯 Problem Statement
-Gig workers in India often lose **20–30% of their income** due to uncontrollable external factors like:
-* 🌧 Heavy rain / floods
-* 🌡 Heatwaves / high pollution
-* 🚓 Curfews, strikes, or area restrictions
+India's food delivery partners are the backbone of the urban economy — yet they carry 100% of the financial risk from disruptions they cannot control. A single heavy-rain day or a curfew can wipe out ₹500–₹1,000 of daily income with no safety net.
 
-Currently, they carry 100% of this financial risk with no structured safety net to protect their daily earnings.
+| The Reality | The Gap |
+| :--- | :--- |
+| **20–30% monthly income lost to disruptions** | No income protection product exists for gig workers |
+| **Disruptions are measurable & verifiable** | Insurance is inaccessible, slow, and paperwork-heavy |
+| **Workers earn and spend week-to-week** | Existing products are annual/monthly, not weekly |
 
 ## 💡 Our Solution
-GigInsura provides a **fully automated income protection system** focused *exclusively* on income loss (strictly excluding health, accident, or vehicle insurance).
+GigInsura provides a fully automated, weekly parametric income protection system for Zomato/Swiggy delivery partners.
 
 ### Key Features
-* 🧾 **Smart Onboarding:** Select platform (Zomato/Swiggy), enter earnings, receive AI risk profile.
-* 🤖 **AI Risk Assessment:** Predicts disruption probability using weather, location, and AQI patterns.
-* ⚡ **Parametric Insurance:** Auto-claims triggered by real-world conditions. No manual filing.
-* 🔐 **Fraud Detection:** GPS spoofing and anomaly detection.
+* 🧾 **Smart Onboarding** — Select platform, enter average weekly earnings, receive AI-generated risk profile and recommended plan.
+* 🤖 **AI Risk Assessment** — Predicts disruption probability from weather, AQI, and location history. Dynamically adjusts weekly premium.
+* ⚡ **Parametric Insurance** — Claims auto-triggered by real-world data. No manual filing, no calls, no forms.
+* 📊 **Dual Dashboard** — Worker-facing earnings tracker + Admin analytics and fraud monitoring.
+* 🔐 **Fraud Detection** — GPS velocity checks, OS-level mock-provider flags, and asynchronous photo escrow.
+
+## 👤 Persona & Real-World Scenarios
+**Target Persona:** Food delivery partners working on Zomato and/or Swiggy in metro Indian cities (Delhi, Mumbai, Bengaluru, Hyderabad). Typically aged 20–35, earning ₹8,000–₹15,000/month, operating 6–8 hours/day, living gig-to-gig with no employer benefits.
+
+### Scenario 1 — Heavy Rainfall (Environmental Disruption)
+Raju, 27, delivers for Zomato in South Delhi. On a Tuesday afternoon, monsoon rainfall exceeds 55mm/hour in his zone. Zomato's order volume drops 80%. Raju parks his bike and cannot work for 4 hours.
+
+* **Without GigInsura:** Raju loses ~₹400 with no recourse.
+* **With GigInsura (Standard Plan):**
+  1. GigInsura's weather monitor detects rainfall > 50mm in Raju's registered zone.
+  2. System cross-checks Raju's GPS — he is stationary in the affected area.
+  3. Fraud engine clears the claim in seconds.
+  4. ₹400 payout is credited to Raju's UPI within minutes.
+  5. Raju receives a push notification: "Disruption detected. ₹400 credited. Stay safe."
+
+### Scenario 2 — Hazardous Air Quality (Environmental Disruption)
+Priya, 24, delivers for Swiggy in Noida. Delhi's AQI spikes to 430 (Severe category) on a winter morning. Government issues an advisory against outdoor activity for sensitive populations. Order counts fall dramatically.
+
+* **Without GigInsura:** Priya loses a full morning shift (~₹350) and risks her health.
+* **With GigInsura (Pro Plan):**
+  1. GigInsura's AQI feed (IQAir/CPCB API) detects AQI > 400 in Noida.
+  2. Automated claim is initiated. Payout of ₹700 (pro-rated for daily cap) is processed.
+  3. Priya also receives an in-app air quality alert suggesting she stay home.
+
+### Scenario 3 — Curfew / Area Restriction (Social Disruption)
+Arjun, 31, covers the Old Delhi zone for Zomato. A local communal tension triggers a Section 144 order in his area at 6 PM. He cannot access his primary delivery zone for 3 hours.
+
+* **Without GigInsura:** Arjun loses his peak-hour earnings (~₹500–₹600).
+* **With GigInsura (Standard Plan):**
+  1. GigInsura receives a curfew alert via government/news API integration.
+  2. Arjun's GPS confirms he attempted to operate in the restricted zone.
+  3. Claim auto-triggers. ₹400 payout is processed.
+  4. Admin dashboard flags the event zone for risk recalculation next week.
+
+### Scenario 4 — Fraudulent Claim Attempt (Anti-Fraud Flow)
+A bad actor installs a GPS spoofing app and attempts to fake their location inside a rainfall zone without actually being there.
+
+* **GigInsura's Response:**
+  1. GPS coordinates show the user "teleporting" 8km in 3 seconds — velocity anomaly flagged.
+  2. OS-level check detects a mock location provider app active on the device.
+  3. Claim is moved to Escrow state — NOT instantly rejected.
+  4. User receives a push: "We need a quick photo of your current surroundings to verify your claim."
+  5. No valid photo submitted → Claim denied. Honest users in genuine disruptions can submit photo and get cleared by Admin.
+
+## 🔄 Application Workflow
+```text
+Worker Opens App
+      │
+      ▼
+[Onboarding]
+  - Select platform (Zomato / Swiggy)
+  - Enter average weekly earnings
+  - Allow location permission
+  - AI generates Risk Score (Low / Medium / High)
+      │
+      ▼
+[Plan Selection & Premium Calculation]
+  - Choose Basic / Standard / Pro
+  - AI adjusts price based on hyper-local risk score
+  - Weekly premium deducted automatically
+      │
+      ▼
+[Active Coverage — Real-Time Monitoring]
+  - Weather / AQI / Curfew APIs polled continuously
+  - Worker GPS telemetry checked every 2 minutes
+      │
+      ▼
+[Disruption Detected]
+  - Parametric trigger threshold crossed?
+       ├── YES → Fraud Engine validates GPS + OS flags
+       │              ├── PASS → Instant Payout via Razorpay
+       │              └── FAIL → Escrow → Photo Request → Admin Review
+       └── NO  → Coverage continues silently
+      │
+      ▼
+[Worker Dashboard]
+  - Payout history
+  - Active coverage status
+  - Real-time disruption alerts
+```
 
 ## 💰 Pricing & Coverage Plans
-We operate on a **weekly subscription model**, mapping perfectly to the payout cycle of gig workers.
+GigInsura uses a weekly subscription model, aligned with the payout cycle of gig workers. Premiums are dynamically adjusted by the AI risk engine.
 
-| Plan | Base Price | Coverage |
-| :--- | :--- | :--- |
-| **Basic** | ₹15/week | ₹200 payout |
-| **Standard** | ₹30/week | ₹400 payout |
-| **Pro** | ₹50/week | ₹700 payout |
-*Note: Premiums are adjusted dynamically by AI based on hyper-local risk scores.*
+| Plan | Base Weekly Premium | Weekly Payout Cap | Best For |
+| :--- | :--- | :--- | :--- |
+| **Basic** | ₹15/week | ₹200 | Part-time, low-risk zones |
+| **Standard** | ₹30/week | ₹400 | Full-time, moderate-risk zones |
+| **Pro** | ₹50/week | ₹700 | High-income, high-risk zones |
 
-## ⚡ Parametric Triggers & Dashboard
-Claims are triggered automatically via active data streams:
+**Dynamic Premium Formula:**
+`Final Weekly Premium = Base Price + (Risk Score × Adjustment Factor)`
+* **Risk Score** is output by the ML model (0.0 – 1.0).
+* **Adjustment Factor** is calibrated per zone based on historical disruption frequency.
+*(Example: A worker in a flood-prone zone may pay ₹5–₹10 more per week than a low-risk counterpart.)*
 
-| Condition | Trigger Event | Payout |
-| :--- | :--- | :--- |
-| Rain > 50mm | Delivery disruption | Instant payout limit |
-| AQI > 400 | Unsafe outdoor conditions | Instant payout limit |
-| Curfew Alert | Area inaccessible | Instant payout limit |
+**Why Weekly?** Gig workers receive platform payouts weekly. A weekly insurance cycle eliminates the barrier of upfront annual/monthly premiums that most gig workers cannot afford.
 
-**Intelligent Dashboard:**
-* **Worker:** Active coverage status, earnings protected, real-time alerts.
-* **Admin:** Claims analytics, risk heatmaps, fraud monitoring.
+## ⚡ Parametric Triggers
+Claims are triggered automatically by crossing measurable real-world thresholds. No manual filing required.
+
+| Trigger | Data Source | Threshold | Outcome |
+| :--- | :--- | :--- | :--- |
+| **Heavy Rain** | OpenWeatherMap API | Rainfall > 50mm/hr | Instant payout |
+| **Severe Pollution** | IQAir / CPCB API | AQI > 400 | Instant payout |
+| **Curfew / Section 144** | News + Govt. Alert APIs | Active zone restriction | Instant payout |
+| **Heatwave** | OpenWeatherMap API | Temperature > 45°C | Instant payout |
+| **Flash Flood / Waterlogging**| Civic alert APIs (mock) | Zone flood advisory active| Instant payout |
+
+**Platform Choice — Mobile (React Native):** Chosen because delivery partners are mobile-first. GPS telemetry, push notifications for alerts, and photo upload for escrow resolution all require native mobile capabilities. A web-only solution would miss the real-time, on-road experience.
+
+## 🧠 AI/ML Integration Plan
+### 1. Risk Assessment & Dynamic Premium Pricing
+* **Model:** Logistic Regression → Random Forest (upgraded in Phase 2)
+* **Inputs:** Worker's home zone, delivery zone cluster, historical weather events, AQI trends, curfew frequency, time-of-year seasonality
+* **Output:** Risk Score (Low / Medium / High) used to adjust weekly premium
+
+### 2. Fraud Detection
+* **Model:** Isolation Forest (unsupervised anomaly detection)
+* **Inputs:** GPS coordinates + timestamps, OS mock-provider flag, static IP persistence, claim frequency per worker
+* **Output:** PASS (auto-approve) / FLAG (route to escrow)
+
+### 3. Predictive Disruption Forecasting (Phase 3)
+* **Model:** Time-series forecasting (Prophet / LSTM)
+* **Purpose:** Admin dashboard — predict next week's likely claim volume by zone for insurer risk management
+
+## 🛡️ Fraud Detection & Anti-Spoofing
+GigInsura's fraud architecture operates on three independent layers:
+1. **Layer 1 — Algorithmic Teleportation & Velocity Validation:** The backend continuously calculates the time-distance delta between GPS pings. Any traversal physically impossible for a delivery vehicle (e.g., 10km in 2 seconds) is instantly classified as a spoofed coordinate.
+2. **Layer 2 — Native OS Mock-Provider Flags & Network Fingerprinting:** Instead of relying purely on lat/long, the app extracts OS-level flags that detect fake GPS applications. This is cross-referenced with network IP data: a genuine moving worker transitions across cellular towers, while a stationary spoofer maintains a suspiciously static residential IP alongside rapidly shifting coordinates.
+3. **Layer 3 — Asynchronous Escrow & Photographic Verification:** Flagged claims are never instantly rejected — extreme weather can cause genuine GPS jitter. Instead, claims are placed in an Escrow state and the worker receives an empathetic push notification requesting a live contextual photo (e.g., a real-time image of the flooded street). This shifts the burden of proof to localized visual confirmation, penalizing spoofers while preserving the trust of honest workers.
 
 ## ⚙️ System Architecture
 ```mermaid
 graph TD
-    A["Mobile Web App React"] -->|Location and Telemetry: OS Flags, IP, Timestamp| B("Node.js and Express Backend")
+    A["Mobile App (React Native)"] -->|"Location, Telemetry, OS Flags"| B("Node.js + Express Backend")
     B --> C{"MongoDB Database"}
-    D["OpenWeather API"] -.->|Weather Alerts| B
-    E["AQI and Traffic APIs"] -.->|Pollution and Curfews| B
-    B <-->|Payload for Validation| F["Python AI and Fraud Engine"]
-    
-    F -.->|Pass: Validated| B
-    B -->|Trigger Payout| G["Mock Payment Gateway Razorpay"]
-    
-    F -.->|Fail: Anomaly Flagged| H["Asynchronous Escrow State"]
-    H -->|Request Live Photo| A
-    A -->|Upload Image| I["Admin Dashboard Review"]
-    I -->|Approve via Portal| G
+    D["OpenWeather API"] -.->|"Rainfall / Heatwave Alerts"| B
+    E["IQAir / CPCB API"] -.->|"AQI Readings"| B
+    F["Curfew / News Alert API"] -.->|"Zone Restriction Alerts"| B
+    B <-->|"Payload for Validation"| G["Python AI + Fraud Engine"]
+
+    G -.->|"PASS: Validated"| B
+    B -->|"Trigger Payout"| H["Razorpay Test Mode"]
+
+    G -.->|"FLAG: Anomaly Detected"| I["Escrow State"]
+    I -->|"Photo Request Push Notification"| A
+    A -->|"Upload Live Photo"| J["Admin Dashboard"]
+    J -->|"Manual Approve / Reject"| H
 ```
 
-## 🧠 AI/ML Models & Fraud Detection
-* **Risk Prediction (Logistic Regression / Random Forest):** Outputs Low/Medium/High risk score based on predictive data.
-* **Dynamic Pricing:** `Weekly Premium = Base Price + (Risk Score × Factor)`
-* **Fraud Detection (Isolation Forest):** Identifies unusual claim patterns, GPS spoofing, and duplicate claims.
-
-## 🛡️ Adversarial Defense & Anti-Spoofing (Market Shift Update)
-* **The Differentiation (Algorithmic Teleportation & Velocity Validation):** Our backend continuously calculates the time-distance delta between telemetry pings. If a worker exhibits instantaneous traversal (e.g., traveling 10km in 2 seconds), the anomaly engine instantly classifies the node as structurally impossible and flags the claim as a spoofed coordinate.
-* **The Data (Native OS Mock-Provider Flags & Static Network Fingerprinting):** Instead of relying purely on Latitude/Longitude, our system extracts native hardware-level flags from the mobile OS (which detect simulation applications) and cross-references them against Static IP persistence. A genuine moving delivery partner will transition across cellular network towers, whereas a stationary spoofer will maintain a highly suspicious, static home residential IP while displaying rapid coordinate shifts.
-* **The UX Balance (Asynchronous Escrow & Photographic Verification):** We never instantly reject a claim, as extreme weather can cause genuine GPS jitter. Instead, flagged claims are routed into a temporary "Escrow" state. The worker receives an empathetic push notification requesting a live contextual photograph (e.g., a real-time picture of the flooded street). This seamlessly shifts the burden of proof to a localized visual confirmation, penalizing spoofers while preserving the dignity and trust of honest riders.
-
-## 🔄 Workflow & Demo Flow
-1. **Onboarding:** Worker registers, selects a plan, and AI calculates their risk score.
-2. **Weekly Deduction:** Dynamically generated premium is set.
-3. **The Disruption:** A disruption is simulated (e.g., heavy rainfall > 50mm).
-4. **Trigger & Validation:** System monitors real-time APIs. Fraud model analyzes GPS telemetry (e.g., verifying the worker is halted at the affected location).
-5. **Instant Payout:** Claim is auto-generated and payout is instantly processed via Razorpay Test Mode.
-
 ## 🧩 Tech Stack
-* **Frontend:** React / React Native
-* **Backend:** Node.js + Express
-* **AI/ML:** Python (Scikit-learn)
-* **Database:** MongoDB
-* **APIs:** OpenWeather API, AQI API
-* **Payments:** Razorpay (Test Mode)
+| Layer | Technology | Justification |
+| :--- | :--- | :--- |
+| **Frontend** | React Native | Cross-platform mobile, GPS access, push notifications |
+| **Backend** | Node.js + Express | Fast async I/O, ideal for real-time API polling |
+| **AI/ML Engine** | Python (Scikit-learn) | Random Forest for risk scoring, Isolation Forest for fraud |
+| **Database** | MongoDB | Flexible schema for worker profiles, claims, telemetry logs |
+| **Weather API** | OpenWeatherMap | Real-time rainfall and temperature data |
+| **AQI API** | IQAir / CPCB | Hyper-local pollution index |
+| **Payments** | Razorpay (Test Mode)| Widely used in India, easy UPI simulation |
+
+## 🗺️ Development Roadmap
+**✅ Phase 1 [March 4–20] — Ideation & Foundation 🦄** 
+- [x] Problem analysis and persona definition
+- [x] Core strategy documentation (this README)
+- [x] System architecture design
+- [x] GitHub repository setup
+- [x] Phase 1 video walkthrough
+
+**🔨 Phase 2 [March 21 – April 4] — Automation & Protection 🛡️** 
+- [ ] React Native mobile frontend (onboarding, dashboard, alerts)
+- [ ] Node.js + Express backend (worker registration, policy management)
+- [ ] MongoDB schema setup (workers, policies, claims, telemetry)
+- [ ] Python ML models (Random Forest risk scorer, Isolation Forest fraud detector)
+- [ ] 3–5 automated parametric trigger integrations (Weather, AQI, Curfew APIs)
+- [ ] Dynamic premium calculation engine
+- [ ] Zero-touch claims flow (auto-trigger → fraud check → payout or escrow)
+
+**📈 Phase 3 [April 5–17] — Scale & Optimise 🚀** 
+- [ ] Advanced fraud detection (velocity checks, OS flags, IP fingerprinting)
+- [ ] Razorpay test mode payout simulation
+- [ ] Worker dashboard (earnings protected, active coverage, payout history)
+- [ ] Admin/Insurer dashboard (claims analytics, risk heatmaps, predictive forecasting)
 
 ## 💻 Local Installation & Setup
-*(Note: Full application architecture targeting completion in Phase 2)*
+*(Full application targeting Phase 2 completion)*
 ```bash
 # Clone the repository
 git clone https://github.com/your-username/GigInsura.git
 cd GigInsura
 
-# Install Frontend Dependencies
+# Frontend (React Native)
 cd frontend
 npm install
+npx react-native start
 
-# Install Backend Dependencies
+# Backend (Node.js)
 cd ../backend
 npm install
-
-# Setup Environment Variables
-cp .env.example .env
-
-# Run the local development server
+cp .env.example .env   
 npm run dev
+
+# AI/ML Engine (Python)
+cd ../ml
+pip install -r requirements.txt
+python app.py
+```
+**Environment variables required (.env):**
+```env
+OPENWEATHER_API_KEY=your_key_here
+IQAIR_API_KEY=your_key_here
+RAZORPAY_KEY_ID=your_test_key
+RAZORPAY_KEY_SECRET=your_test_secret
+MONGODB_URI=mongodb://localhost:27017/giginsura
 ```
 
----
-
 ## 👨‍💻 Contributors
-* **Satvik Chaurasia**
-* **Raghvendra Chauhan**
-* **Suryansh Chauhan**
-* **Samarth Kesari**
-* **Gargi Sharma**
+| Name | Role |
+| :--- | :--- |
+| **Satvik Chaurasia** | Lead Developer |
+| **Raghvendra Chauhan** | Backend & ML |
+| **Suryansh Chauhan** | Frontend & UX |
+| **Samarth Kesari** | AI/ML Models |
+| **Gargi Sharma** | Research & Strategy |
