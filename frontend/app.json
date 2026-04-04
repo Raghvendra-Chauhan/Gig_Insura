@@ -1,0 +1,14 @@
+{
+  "expo": {
+    "name": "GigInsura",
+    "slug": "giginsura",
+    "version": "1.0.0",
+    "scheme": "giginsura",
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}
