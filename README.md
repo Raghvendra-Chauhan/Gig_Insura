@@ -7,7 +7,7 @@
 [![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://mongodb.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4EA94B?style=for-the-badge&logo=PostgreSQL&logoColor=white)](https://PostgreSQL.com/)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
 *Built for Guidewire DEVTrails 2026: Unicorn Chase*
@@ -285,8 +285,8 @@ graph TD
         FRAUD[Fraud Engine\nIsolation Forest\nAnomaly Detection]
     end
 
-    subgraph DB["Data Layer - MongoDB"]
-        MONGO[(MongoDB\nUsers · Policies\nClaims · Payouts · Fraud Logs)]
+    subgraph DB["Data Layer - PostgreSQL"]
+        MONGO[(PostgreSQL\nUsers · Policies\nClaims · Payouts · Fraud Logs)]
     end
 
     subgraph External["External APIs"]
@@ -408,7 +408,7 @@ erDiagram
 | **Mobile Frontend** | React Native | Cross-platform, GPS access, push notifications, photo upload |
 | **Backend** | Node.js + Express | Fast async I/O, ideal for real-time API polling |
 | **AI / ML** | Python + Scikit-learn | Random Forest (risk scoring), Isolation Forest (fraud detection) |
-| **Database** | MongoDB | Flexible schema for evolving claim and fraud data structures |
+| **Database** | PostgreSQL | Flexible schema for evolving claim and fraud data structures |
 | **Weather API** | OpenWeatherMap (Free Tier) | Real-time rainfall and temperature by coordinates |
 | **AQI API** | IQAir / CPCB (Free Tier) | Hyper-local pollution index for Indian cities |
 | **Payments** | Razorpay Test Mode | Widely used in India, simple UPI payout simulation |
@@ -437,7 +437,7 @@ erDiagram
 
 - [ ] React Native mobile frontend — onboarding, plan selection, worker dashboard
 - [ ] Node.js + Express backend — auth, policy engine, claims engine
-- [ ] MongoDB schema implementation
+- [ ] PostgreSQL schema implementation
 - [ ] Python ML models — Random Forest (risk scoring), Isolation Forest (fraud)
 - [ ] 3–5 automated parametric trigger integrations (Weather · AQI · Curfew)
 - [ ] Dynamic premium calculation engine
@@ -473,7 +473,7 @@ erDiagram
 ```
 Node.js  >= 18.x
 Python   >= 3.10
-MongoDB  >= 6.x
+PostgreSQL  >= 6.x
 Expo CLI    (npm install -g expo-cli)
 ```
 
@@ -505,7 +505,7 @@ python app.py
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/giginsura
+DATABASE_URL=postgresql://postgres:your_password@localhost:5432/giginsura
 JWT_SECRET=your_jwt_secret_here
 
 OPENWEATHER_API_KEY=your_key_here
