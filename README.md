@@ -12,7 +12,7 @@
 
 *Built for Guidewire DEVTrails 2026: Unicorn Chase*
 
-📹 **Phase 1 Demo Video:** [Watch Here](https://youtu.be/pzSS6uWeG7o)
+📹 **Phase 2 Demo Video:** [Watch Here](https://youtu.be/pzSS6uWeG7o)
 
 </div>
 
