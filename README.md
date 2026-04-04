@@ -435,14 +435,14 @@ erDiagram
 ### 🔨 Phase 2 — Automation & Protection `March 21 – April 4`
 *Theme: "Protect Your Worker"*
 
-- [ ] React Native mobile frontend — onboarding, plan selection, worker dashboard
-- [ ] Node.js + Express backend — auth, policy engine, claims engine
-- [ ] PostgreSQL schema implementation
-- [ ] Python ML models — Random Forest (risk scoring), Isolation Forest (fraud)
-- [ ] 3–5 automated parametric trigger integrations (Weather · AQI · Curfew)
-- [ ] Dynamic premium calculation engine
-- [ ] Zero-touch claims flow — auto-trigger → fraud check → payout or escrow
-- [ ] Phase 2 demo video (2 min)
+- [x] React Native mobile frontend — onboarding, plan selection, worker dashboard
+- [x] Node.js + Express backend — auth, policy engine, claims engine
+- [x] PostgreSQL schema implementation
+- [x] Python ML models — Random Forest (risk scoring), Isolation Forest (fraud)
+- [x] 3–5 automated parametric trigger integrations (Weather · AQI · Curfew)
+- [x] Dynamic premium calculation engine
+- [x] Zero-touch claims flow — auto-trigger → fraud check → payout or escrow
+- [x] Phase 2 demo video (2 min)
 
 **Deliverables:** Working Code · Registration · Policy Management · Dynamic Premium · Claims Management · 2-min Demo
 
