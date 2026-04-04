@@ -16,47 +16,24 @@ const ZONES = [
 ];
 
 
-// 🔧 Set MOCK_WEATHER=false in .env once your OpenWeatherMap key is active
-const USE_MOCK_WEATHER = process.env.MOCK_WEATHER !== 'false';
-
-function getMockWeatherData(zone) {
-    const mockData = {
-        'delhi-south':   { rainfall: 65, temp: 32 },  // triggers rainfall (>50mm)
-        'delhi-north':   { rainfall: 10, temp: 46 },  // triggers heatwave (>45°C)
-        'noida':         { rainfall: 20, temp: 30 },  // no trigger
-        'mumbai-central':{ rainfall: 80, temp: 33 },  // triggers rainfall
-    };
-    return mockData[zone.name] || { rainfall: 0, temp: 30 };
-}
-
 async function checkWeather(zone) {
     try {
-        let rainfall, temp;
+        const url = `https://api.openweathermap.org/data/2.5/weather` +
+            `?lat=${zone.lat}&lon=${zone.lon}` +
+            `&appid=${process.env.OPENWEATHER_API_KEY}&units=metric`;
 
-        if (USE_MOCK_WEATHER) {
-            const mock = getMockWeatherData(zone);
-            rainfall = mock.rainfall;
-            temp = mock.temp;
-            console.log(`🧪 [MOCK] ${zone.name} → rainfall: ${rainfall}mm, temp: ${temp}°C`);
-        } else {
-            const url = `https://api.openweathermap.org/data/2.5/weather` +
-                `?lat=${zone.lat}&lon=${zone.lon}` +
-                `&appid=${process.env.OPENWEATHER_API_KEY}&units=metric`;
-            const { data } = await axios.get(url);
-            rainfall = data.rain?.['1h'] || 0;
-            temp = data.main?.temp || 30;
-        }
+        const { data } = await axios.get(url);
+        const rainfall = data.rain?.['1h'] || 0;
+        const temp = data.main?.temp || 30;
 
         if (rainfall > THRESHOLDS.rainfall_mm) {
             await saveTriggerAndCreateClaims(
-                zone.name, 'rainfall', rainfall, THRESHOLDS.rainfall_mm,
-                USE_MOCK_WEATHER ? 'MockData' : 'OpenWeatherMap'
+                zone.name, 'rainfall', rainfall, THRESHOLDS.rainfall_mm, 'OpenWeatherMap'
             );
         }
         if (temp > THRESHOLDS.temperature_c) {
             await saveTriggerAndCreateClaims(
-                zone.name, 'heatwave', temp, THRESHOLDS.temperature_c,
-                USE_MOCK_WEATHER ? 'MockData' : 'OpenWeatherMap'
+                zone.name, 'heatwave', temp, THRESHOLDS.temperature_c, 'OpenWeatherMap'
             );
         }
     } catch (err) {
