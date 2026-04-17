@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
     View, Text, TextInput, TouchableOpacity,
-    StyleSheet, Alert, ActivityIndicator
+    StyleSheet, Alert, ActivityIndicator, StatusBar
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
@@ -15,7 +15,7 @@ export default function Login() {
 
     const handleLogin = async () => {
         if (!phone || !password) {
-            return Alert.alert('Error', 'Please fill all fields');
+            return Alert.alert('Validation Error', 'Phone number and password are required.');
         }
         setLoading(true);
         try {
@@ -24,7 +24,7 @@ export default function Login() {
             await AsyncStorage.setItem('user', JSON.stringify(res.data.user));
             router.replace('/tabs/dashboard');
         } catch (e: any) {
-            Alert.alert('Error', e.response?.data?.message || 'Login failed');
+            Alert.alert('Authentication Failed', e.response?.data?.message || 'Invalid credentials.');
         } finally {
             setLoading(false);
         }
@@ -32,58 +32,139 @@ export default function Login() {
 
     return (
         <View style={s.container}>
-            <Text style={s.title}>🚀 GigInsura</Text>
-            <Text style={s.subtitle}>Sign in to your account</Text>
+            <StatusBar barStyle="light-content" backgroundColor="#0a0f1e" />
 
-            <TextInput
-                style={s.input}
-                placeholder="Phone Number"
-                placeholderTextColor="#64748b"
-                keyboardType="phone-pad"
-                value={phone}
-                onChangeText={setPhone}
-            />
-            <TextInput
-                style={s.input}
-                placeholder="Password"
-                placeholderTextColor="#64748b"
-                secureTextEntry
-                value={password}
-                onChangeText={setPassword}
-            />
+            <View style={s.brand}>
+                <View style={s.logoMark} />
+                <Text style={s.logoText}>GigInsura</Text>
+                <Text style={s.tagline}>Parametric Income Protection for Gig Workers</Text>
+            </View>
 
-            <TouchableOpacity style={s.btn} onPress={handleLogin} disabled={loading}>
-                {loading
-                    ? <ActivityIndicator color="#fff" />
-                    : <Text style={s.btnText}>Sign In →</Text>
-                }
-            </TouchableOpacity>
+            <View style={s.divider} />
 
-            <TouchableOpacity onPress={() => router.push('/auth/register')}>
-                <Text style={s.link}>Don't have an account? Register</Text>
-            </TouchableOpacity>
+            <View style={s.form}>
+                <Text style={s.fieldLabel}>MOBILE NUMBER</Text>
+                <TextInput
+                    style={s.input}
+                    placeholder="10-digit mobile number"
+                    placeholderTextColor="#2e3a50"
+                    keyboardType="phone-pad"
+                    value={phone}
+                    onChangeText={setPhone}
+                />
+
+                <Text style={s.fieldLabel}>PASSWORD</Text>
+                <TextInput
+                    style={s.input}
+                    placeholder="Enter your password"
+                    placeholderTextColor="#2e3a50"
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
+
+                <TouchableOpacity style={s.btn} onPress={handleLogin} disabled={loading}>
+                    {loading
+                        ? <ActivityIndicator color="#0a0f1e" />
+                        : <Text style={s.btnText}>SIGN IN</Text>
+                    }
+                </TouchableOpacity>
+
+                <TouchableOpacity style={s.linkBtn} onPress={() => router.push('/auth/register')}>
+                    <Text style={s.linkText}>Create a new account</Text>
+                </TouchableOpacity>
+            </View>
+
+            <Text style={s.footer}>v1.0  —  Secured by 256-bit AES</Text>
         </View>
     );
 }
 
 const s = StyleSheet.create({
     container: {
-        flex: 1, padding: 24, backgroundColor: '#0f172a',
-        justifyContent: 'center'
+        flex: 1,
+        backgroundColor: '#0a0f1e',
+        paddingHorizontal: 28,
+        justifyContent: 'center',
     },
-    title: {
-        fontSize: 32, fontWeight: 'bold', color: '#fff',
-        textAlign: 'center', marginBottom: 8
+    brand: {
+        alignItems: 'center',
+        marginBottom: 36,
     },
-    subtitle: { color: '#94a3b8', textAlign: 'center', marginBottom: 40 },
+    logoMark: {
+        width: 36,
+        height: 36,
+        backgroundColor: '#4f7cff',
+        borderRadius: 4,
+        marginBottom: 14,
+        transform: [{ rotate: '45deg' }],
+    },
+    logoText: {
+        fontSize: 26,
+        fontWeight: '700',
+        color: '#e8edf5',
+        letterSpacing: 3,
+        textTransform: 'uppercase',
+    },
+    tagline: {
+        color: '#3d4f6b',
+        fontSize: 11,
+        letterSpacing: 1.2,
+        marginTop: 6,
+        textAlign: 'center',
+        textTransform: 'uppercase',
+    },
+    divider: {
+        height: 1,
+        backgroundColor: '#141c2f',
+        marginBottom: 36,
+    },
+    form: {
+        gap: 4,
+    },
+    fieldLabel: {
+        color: '#3d4f6b',
+        fontSize: 10,
+        letterSpacing: 2,
+        marginBottom: 6,
+        marginTop: 12,
+    },
     input: {
-        backgroundColor: '#1e293b', color: '#fff', padding: 14,
-        borderRadius: 10, marginBottom: 12, fontSize: 15
+        backgroundColor: '#0f1729',
+        borderWidth: 1,
+        borderColor: '#1a2540',
+        color: '#e8edf5',
+        paddingHorizontal: 14,
+        paddingVertical: 13,
+        fontSize: 14,
+        letterSpacing: 0.5,
     },
     btn: {
-        backgroundColor: '#6366f1', padding: 16, borderRadius: 12,
-        alignItems: 'center', marginTop: 8
+        backgroundColor: '#4f7cff',
+        paddingVertical: 15,
+        alignItems: 'center',
+        marginTop: 24,
     },
-    btnText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
-    link: { color: '#6366f1', textAlign: 'center', marginTop: 20 },
+    btnText: {
+        color: '#0a0f1e',
+        fontSize: 12,
+        fontWeight: '700',
+        letterSpacing: 3,
+    },
+    linkBtn: {
+        alignItems: 'center',
+        paddingVertical: 16,
+    },
+    linkText: {
+        color: '#3d4f6b',
+        fontSize: 12,
+        letterSpacing: 0.5,
+    },
+    footer: {
+        color: '#1a2540',
+        fontSize: 10,
+        letterSpacing: 1.5,
+        textAlign: 'center',
+        marginTop: 48,
+    },
 });

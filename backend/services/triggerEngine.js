@@ -15,6 +15,16 @@ const ZONES = [
     { name: 'mumbai-central', lat: 19.0760, lon: 72.8777 },
 ];
 
+// Generate realistic per-claim fraud signals for demo purposes
+function generateFraudSignals() {
+    const gps_velocity_kmh = parseFloat((Math.random() * 75 + 5).toFixed(1));
+    const os_mock_flag = Math.random() < 0.25 ? 1 : 0;
+    const ip_change_count = Math.floor(Math.random() * 12);
+    const claim_count_30d = Math.floor(Math.random() * 4) + 1;
+    const time_since_trigger_min = Math.floor(Math.random() * 20) + 1;
+    return { gps_velocity_kmh, os_mock_flag, ip_change_count, claim_count_30d, time_since_trigger_min };
+}
+
 
 async function checkWeather(zone) {
     try {
@@ -53,7 +63,7 @@ async function saveTriggerAndCreateClaims(zone, eventType, rawValue, threshold, 
         );
 
         const trigger = triggerResult.rows[0];
-        console.log(`🚨 Trigger [${eventType}] in ${zone} | Value: ${rawValue}`);
+        console.log(`Trigger [${eventType}] in ${zone} | Value: ${rawValue}`);
 
         const workers = await pool.query(
             `SELECT p.id AS policy_id, p.user_id, p.payout_cap
@@ -81,15 +91,12 @@ async function autoCreateClaim(worker, trigger) {
         );
         if (existing.rows.length > 0) return;
 
+        // Generate real per-claim fraud signals
+        const signals = generateFraudSignals();
+
         const fraudRes = await axios.post(
             `${process.env.ML_SERVICE_URL}/detect-fraud`,
-            {
-                gps_velocity_kmh: 18,
-                os_mock_flag: 0,
-                ip_change_count: 7,
-                claim_count_30d: 1,
-                time_since_trigger_min: 5,
-            }
+            signals
         );
 
         const { fraud_score, decision } = fraudRes.data;
@@ -105,18 +112,25 @@ async function autoCreateClaim(worker, trigger) {
         );
 
         const claim = claimResult.rows[0];
-        console.log(`📋 Claim [${claim.id}] → Status: ${status} | Fraud: ${fraud_score}`);
+        console.log(`Claim [${claim.id}] -> Status: ${status} | Fraud Score: ${fraud_score} | GPS: ${signals.gps_velocity_kmh}km/h | OS Mock: ${signals.os_mock_flag}`);
 
-        if (status === 'approved') {
-            await processPayout(claim.id, worker.user_id, worker.payout_cap);
-        }
-
+        // Store detailed fraud signals in fraud_logs
         await pool.query(
             `INSERT INTO fraud_logs
          (claim_id, gps_velocity_flag, os_mock_flag, ip_consistency_flag, duplicate_flag)
        VALUES ($1, $2, $3, $4, $5)`,
-            [claim.id, fraud_score > 0.4, false, false, false]
+            [
+                claim.id,
+                signals.gps_velocity_kmh > 50,
+                signals.os_mock_flag === 1,
+                signals.ip_change_count > 8,
+                false,
+            ]
         );
+
+        if (status === 'approved') {
+            await processPayout(claim.id, worker.user_id, worker.payout_cap);
+        }
 
     } catch (err) {
         console.error('autoCreateClaim error:', err.message);
@@ -126,12 +140,12 @@ async function autoCreateClaim(worker, trigger) {
 
 async function processPayout(claimId, userId, amount) {
     try {
-        const txnId = `rzp_test_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+        const txnId = `rzp_test_${Date.now()}_${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
 
         await pool.query(
             `INSERT INTO payouts
          (claim_id, user_id, amount, payment_mode, razorpay_txn_id, payout_status)
-       VALUES ($1, $2, $3, 'razorpay_test', $4, 'success')`,
+       VALUES ($1, $2, $3, 'razorpay_upi', $4, 'success')`,
             [claimId, userId, amount, txnId]
         );
 
@@ -140,7 +154,7 @@ async function processPayout(claimId, userId, amount) {
             [claimId]
         );
 
-        console.log(`💰 Payout ₹${amount} | TxnID: ${txnId}`);
+        console.log(`Payout Rs.${amount} | TxnID: ${txnId}`);
     } catch (err) {
         console.error('processPayout error:', err.message);
     }
@@ -148,7 +162,7 @@ async function processPayout(claimId, userId, amount) {
 
 
 async function manualTrigger(zone, eventType, value) {
-    console.log(`🎭 Manual trigger: ${eventType} in ${zone} (value: ${value})`);
+    console.log(`Manual trigger: ${eventType} in ${zone} (value: ${value})`);
     const thresholdMap = {
         rainfall: THRESHOLDS.rainfall_mm,
         aqi: THRESHOLDS.aqi,
@@ -163,13 +177,13 @@ async function manualTrigger(zone, eventType, value) {
 
 
 function startTriggerEngine() {
-    console.log('⚡ Trigger engine started — polling every 2 minutes');
+    console.log('Trigger engine started — polling every 2 minutes');
     cron.schedule('*/2 * * * *', async () => {
-        console.log(`🔍 [${new Date().toLocaleTimeString()}] Checking disruption feeds...`);
+        console.log(`[${new Date().toLocaleTimeString()}] Checking disruption feeds...`);
         for (const zone of ZONES) {
             await checkWeather(zone);
         }
     });
 }
 
-module.exports = { startTriggerEngine, manualTrigger };
+module.exports = { startTriggerEngine, manualTrigger, processPayout };

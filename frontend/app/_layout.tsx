@@ -9,6 +9,7 @@ export default function RootLayout() {
             <Stack.Screen name="tabs/dashboard" />
             <Stack.Screen name="tabs/policy" />
             <Stack.Screen name="tabs/claims" />
+            <Stack.Screen name="tabs/admin" />
         </Stack>
     );
 }
