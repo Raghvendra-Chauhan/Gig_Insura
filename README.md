@@ -7,12 +7,20 @@
 [![React Native](https://img.shields.io/badge/React%20Native-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactnative.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
+<<<<<<< HEAD
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://postgresql.org/)
+=======
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4EA94B?style=for-the-badge&logo=PostgreSQL&logoColor=white)](https://PostgreSQL.com/)
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 
 *Built for Guidewire DEVTrails 2026: Unicorn Chase*
 
+<<<<<<< HEAD
 **Phase 1 Demo Video:** [Watch Here](https://youtu.be/pzSS6uWeG7o)
+=======
+📹 **Phase 2 Demo Video:** [Watch Here](https://youtu.be/hlaArL6H4fk)
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 
 </div>
 
@@ -287,8 +295,13 @@ graph TD
         FRAUD[Fraud Engine\nIsolation Forest\nAnomaly Detection]
     end
 
+<<<<<<< HEAD
     subgraph DB["Data Layer — PostgreSQL"]
         PG[(PostgreSQL\nusers · rider_profiles · policies\nclaims · trigger_events\nfraud_logs · payouts · risk_profiles)]
+=======
+    subgraph DB["Data Layer - PostgreSQL"]
+        MONGO[(PostgreSQL\nUsers · Policies\nClaims · Payouts · Fraud Logs)]
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
     end
 
     subgraph External["External Services"]
@@ -452,6 +465,7 @@ erDiagram
 
 | Layer | Technology | Justification |
 |:---|:---|:---|
+<<<<<<< HEAD
 | Mobile Frontend | React Native (Expo) | Cross-platform, GPS access, push notifications |
 | Backend | Node.js + Express | Fast async I/O, ideal for real-time API polling |
 | AI / ML | Python + Flask + Scikit-learn | Random Forest (risk), Isolation Forest (fraud) |
@@ -459,6 +473,15 @@ erDiagram
 | Weather API | OpenWeatherMap (Free Tier) | Real-time rainfall and temperature by coordinates |
 | Payments | Razorpay Test Mode | Simulated UPI payouts with real TXN ID format |
 | Dev Tooling | node-cron, axios, bcryptjs, jsonwebtoken | Standard Node.js ecosystem |
+=======
+| **Mobile Frontend** | React Native | Cross-platform, GPS access, push notifications, photo upload |
+| **Backend** | Node.js + Express | Fast async I/O, ideal for real-time API polling |
+| **AI / ML** | Python + Scikit-learn | Random Forest (risk scoring), Isolation Forest (fraud detection) |
+| **Database** | PostgreSQL | Flexible schema for evolving claim and fraud data structures |
+| **Weather API** | OpenWeatherMap (Free Tier) | Real-time rainfall and temperature by coordinates |
+| **AQI API** | IQAir / CPCB (Free Tier) | Hyper-local pollution index for Indian cities |
+| **Payments** | Razorpay Test Mode | Widely used in India, simple UPI payout simulation |
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 
 ---
 
@@ -482,6 +505,7 @@ erDiagram
 ### Phase 2 — Automation & Protection `March 21 – April 4`
 *Theme: "Protect Your Worker"*
 
+<<<<<<< HEAD
 - [x] React Native mobile frontend — login, register, dashboard, policy, claims screens
 - [x] Node.js + Express backend — auth, policy engine, claims engine, payout routes
 - [x] PostgreSQL schema — users, rider_profiles, policies, risk_profiles, trigger_events, claims, fraud_logs, payouts
@@ -491,6 +515,16 @@ erDiagram
 - [x] Zero-touch claims flow — auto-trigger → ML fraud check → payout or escrow
 - [x] Razorpay test-mode payout simulation in trigger engine
 - [x] JWT authentication with role-based access (worker / admin)
+=======
+- [x] React Native mobile frontend — onboarding, plan selection, worker dashboard
+- [x] Node.js + Express backend — auth, policy engine, claims engine
+- [x] PostgreSQL schema implementation
+- [x] Python ML models — Random Forest (risk scoring), Isolation Forest (fraud)
+- [x] 3–5 automated parametric trigger integrations (Weather · AQI · Curfew)
+- [x] Dynamic premium calculation engine
+- [x] Zero-touch claims flow — auto-trigger → fraud check → payout or escrow
+- [x] Phase 2 demo video (2 min)
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 
 **Deliverables:** Working Code · Registration · Policy Management · Dynamic Premium · Claims Management
 
@@ -522,9 +556,15 @@ erDiagram
 ### Prerequisites
 
 ```
+<<<<<<< HEAD
 Node.js     >= 18.x
 Python      >= 3.10
 PostgreSQL  >= 14.x
+=======
+Node.js  >= 18.x
+Python   >= 3.10
+PostgreSQL  >= 6.x
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 Expo CLI    (npm install -g expo-cli)
 ```
 
@@ -568,7 +608,11 @@ npx expo start
 
 ```env
 PORT=5000
+<<<<<<< HEAD
 DATABASE_URL=postgresql://postgres:<password>@localhost:5432/giginsura
+=======
+DATABASE_URL=postgresql://postgres:your_password@localhost:5432/giginsura
+>>>>>>> c07c4373237083f62bd8facae0e0abb2a83bde7c
 JWT_SECRET=your_jwt_secret_here
 ML_SERVICE_URL=http://localhost:8000
 
